@@ -19,7 +19,7 @@ export const fetchNewsError = (error) => ({
 
 export const fetchNews = () => dispatch => {
     dispatch(fetchNewsRequest)
-    fetch(`${API_BASE_URL}/api/cheeses`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=7e49126398d34be684ec94684eed9151`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText)

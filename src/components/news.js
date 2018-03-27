@@ -12,17 +12,21 @@ export class News extends React.Component{
     }
 
     render() {  
-        console.log(this.props.news)
-        const news = this.props.news.map((news, index) =>
+        console.log(this.props.articles)
+
+        const articles = this.props.articles.map((article, index) =>
             <li key={index}> 
-              {news}
+            <a href={article.url}>  {article.title} </a> 
             </li> 
         );
 
         return (
             <div>
+                <h1>
+                    Simple Weather and News
+                </h1>
                 <ul>
-                    {news}
+                    {articles}
                 </ul>
             </div>
         )
@@ -31,7 +35,7 @@ export class News extends React.Component{
 }
 
 const mapStateToProps = state => ({
-    news: state.news
+    articles: state.news ? state.news.articles : []
 });
 
 export default connect(mapStateToProps)(News);
